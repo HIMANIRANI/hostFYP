@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: backend
+    env: python
+    buildCommand: "pip install -r requirements-gpu.txt"
+    startCommand: "uvicorn main:app --host 0.0.0.0 --port 10000"
+    plan: gpu
+    envVars:
+      - key: SOME_SECRET
+        value: your_value
+
+  - type: static
+    name: frontend
+    buildCommand: "npm install && npm run build"
+    staticPublishPath: "dist"
+    envVars:
+      - key: VITE_API_URL
+        value: https://backend-service-name.onrender.com 
