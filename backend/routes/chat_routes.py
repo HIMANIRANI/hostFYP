@@ -5,8 +5,7 @@ from datetime import datetime
 from ..configurations.config import settings
 from motor.motor_asyncio import AsyncIOMotorClient
 
-from ..models.model import \
-    PredictionPipeline  # Should work with this structure
+from ..models.model_companydb_commented import PredictionPipeline  # Updated import
 
 router = APIRouter(prefix="/api/chat")
 
